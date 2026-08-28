@@ -5,16 +5,15 @@
   <title>AVIATOR</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {font-family:Arial,sans-serif;margin:0;padding:0;text-align:center;background:#fff;color:#000}
+    body {font-family:Arial,sans-serif;margin:0;padding:0;text-align:center;background:#f0f8ff;color:#000}
     h1 {font-size:2em;margin:15px 0;color:#000}
     .topbar {background:#009fe3;height:40px;width:100%}
     .circle {width:180px;height:180px;border-radius:50%;border:6px solid #c00;display:flex;align-items:center;justify-content:center;margin:25px auto;font-size:1.8em;color:#fff;background:#000}
     button {padding:15px 25px;font-size:1.1em;border:none;border-radius:5px;cursor:pointer;width:80%;max-width:320px;margin:15px auto;display:block;text-transform:uppercase;font-weight:bold}
+    #entrarBtn {background:#00c853;color:#fff}
     #preverBtn {background:#001aff;color:#fff}
     #openLogin {background:#c00;color:#fff}
     #loginForm button {background:#009fe3;color:#fff}
-    input {margin:8px;padding:12px;width:80%;max-width:300px;font-size:1em;border:2px solid #c00;border-radius:5px}
-    input::placeholder {color:#888}
     #homeScreen,#gameScreen,#loginScreen,#syncScreen {display:none}
     footer {margin-top:30px;font-size:.9em;color:#555}
   </style>
@@ -25,16 +24,10 @@
   <div id="homeScreen">
     <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Aviator_game_logo.png" 
          alt="Aviator" 
-         style="width:120px;margin-top:20px">
+         style="width:160px;margin-top:30px">
     <h1>AVIATOR</h1>
-    <form id="homeForm">
-      <label for="numeroInicio">Número</label><br>
-      <input type="tel" id="numeroInicio" placeholder="Número" required maxlength="9" pattern="9[0-9]{8}"><br>
-      <label for="chaveInicio">Código:</label><br>
-      <input type="text" id="chaveInicio" placeholder="2026@" required><br>
-      <button type="submit" style="background:#00c853;color:#fff">ENTRAR</button>
-    </form>
-    <p style="margin-top:15px;color:#000">Precisa de apoio? Deixa: <strong>Mensagem na Página ✅</strong></p>
+    <button id="entrarBtn">ENTRAR</button>
+    <p style="margin-top:15px;color:#000">Precisa de apoio? Ligue: <strong>926 128 955 ✅</strong></p>
   </div>
   <!-- Tela do jogo -->
   <div id="gameScreen" style="background:#000;color:#fff;padding:20px">
@@ -79,9 +72,7 @@
   <footer>© AVIATOR</footer>
   <audio id="beepSound" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg"></audio>
   <script>
-    const homeForm=document.getElementById("homeForm"),
-          numeroInicio=document.getElementById("numeroInicio"),
-          chaveInicio=document.getElementById("chaveInicio"),
+    const entrarBtn=document.getElementById("entrarBtn"),
           homeScreen=document.getElementById("homeScreen"),
           gameScreen=document.getElementById("gameScreen"),
           loginScreen=document.getElementById("loginScreen"),
@@ -99,17 +90,8 @@
           backToGame=document.getElementById("backToGame"),
           beepSound=document.getElementById("beepSound");
 
-    // Tela inicial
-    homeForm.addEventListener("submit",function(e){
-      e.preventDefault();
-      if(!/^9\d{8}$/.test(numeroInicio.value)){
-        alert("Número inválido!");
-        return;
-      }
-      if(chaveInicio.value!=="2026@"){
-        alert("Chave incorreta!");
-        return;
-      }
+    // Botão ENTRAR leva direto ao jogo
+    entrarBtn.addEventListener("click",function(){
       homeScreen.style.display="none";
       gameScreen.style.display="block";
     });
